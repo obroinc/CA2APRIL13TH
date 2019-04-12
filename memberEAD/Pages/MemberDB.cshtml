@@ -1,0 +1,92 @@
+﻿@page "{id}"
+@model memberEAD.Pages.MemberDBModel
+@{
+    ViewData["Title"] = "MemberDB";
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2> Database of Members</h2>
+
+        @TempData["Message"];
+
+
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Member_ID</th>
+
+                    <th>F name</th>
+                    <th>F name</th>
+
+                    <th>DOB</th>
+
+                    <th>PPS</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thur</th>
+                    <th>Fri</th>
+
+                    <th>View Details</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var member in Model.Members)
+                {
+                    // list out each of the properties.
+                <tr>
+                    <td>@member.MemberID</td>
+
+                    <td>@member.FirstName</td>
+
+                    <td>@member.LastName</td>
+
+                    <td>@member.DOB.ToShortDateString()</td>
+                    <td>@member.PPS</td>
+                    <td>@member.Email</td>
+                    <td>@member.Gender</td>
+                    <td>@member.Mondays</td>
+                    <td>@member.Tuesday</td>
+                    <td>@member.Wednesday</td>
+                    <td>@member.Thursday</td>
+                    <td>@member.Friday</td>
+
+
+                    <td> <a asp-page="DeleteMembers" asp-route-id="@member.MemberID" class="btn btn-success">Delete</a> </td>
+                    <td> <a asp-page="EditMembers" asp-route-id="@member.MemberID" class="btn btn-success">Edit</a> </td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <div>
+        <a asp-page="EnrollerMembers" class="btn btn-success">List of enrolled students</a>
+    </div>
+
+</body>
+</html>
+
+

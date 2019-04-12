@@ -1,0 +1,29 @@
+﻿@page "{id}"
+@model memberEAD.Pages.EditMembersModel
+@{
+    ViewData["Title"] = "EditMembers";
+}
+
+<h2>EditMembers</h2>
+
+<form method="post">
+
+
+    <label asp-for=Member.FirstName></label><br />
+    <span class="required-field">*</span>
+    <input asp-for="Member.FirstName" type="text" class="form-control" placeholder="First name" aria-label="Student.Firstname" aria-describedby="Firstname">
+
+
+
+
+    <label asp-for=Member.DOB></label>
+    <span class="required-field">*</span>
+    <input asp-for=Member.DOB class="form-control" />
+
+
+    <div asp-validation-summary="All"></div>
+    @*Hidden input type lets the student id be used to allow student updates*@
+    <input type="hidden" asp-for=@Model.Member.MemberID>
+    <button class="btn btn-success" type="submit">Proceed  with update</button>
+
+</form>

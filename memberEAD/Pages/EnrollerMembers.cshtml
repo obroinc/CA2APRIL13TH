@@ -1,0 +1,67 @@
+﻿@page "{id}"
+@model memberEAD.Pages.EnrollerMembersModel
+@{
+    ViewData["Title"] = "EnrollerMembers";
+}
+
+<h2>EnrolledMembers</h2>
+
+
+<div class="container">
+
+    <h2>List of our enrolled students</h2>
+
+
+
+
+    @if (@Model.Member != null)
+    {
+        <div class="row">
+
+            <div class="column">
+                <h5>ID:</h5>
+                <h5>First Name:</h5>
+                <h5>Last Name:</h5>
+
+                <h5>DOB:</h5>
+                <h5>PPS no.:</h5>
+                <h5>Email:</h5>
+                <h5>Gender:</h5>
+                <h5>mon</h5>
+                <h5>tues</h5>
+                <h5>wed</h5>
+                <h5>thur</h5>
+                <h5>fri</h5>
+
+
+            </div>
+
+            <div class="column">
+                <h5>@Model.Member.MemberID </h5>
+                <h5>@Model.Member.FirstName</h5>
+                <h5>@Model.Member.LastName</h5>
+                <h5>@Model.Member.DOB</h5>
+                <h5>@Model.Member.PPS</h5>
+                <h5>@Model.Member.Email</h5>
+                <h5>@Model.Member.Gender</h5>
+
+                <h5>@Model.Member.Mondays</h5>
+                <h5>@Model.Member.Tuesday</h5>
+                <h5>@Model.Member.Wednesday</h5>
+                <h5>@Model.Member.Thursday</h5>
+                <h5>@Model.Member.Friday</h5>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <h2>No Member here</h2>
+    }
+
+    <div>
+        <a asp-page="MemberDB" asp-route-id="Member.MemberID" class="btn btn-success">Return to Database</a>
+    </div>
+
+
+</div>

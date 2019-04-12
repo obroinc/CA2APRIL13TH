@@ -1,0 +1,61 @@
+﻿@page "{id}"
+@model memberEAD.Pages.DeleteMembersModel
+@{
+    ViewData["Title"] = "DeleteMembers";
+}
+
+<h2>DeleteMembers</h2>
+
+
+<form method="post">
+    <div class="container">
+        <h2>Creche Database of Members</h2>
+
+
+
+
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Member_ID</th>
+
+                    <th>name</th>
+
+                    <th>DOB</th>
+
+
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+              
+                
+                    // list out each of the properties.
+                    <tr>
+                        <td>@Model.Member.MemberID</td>
+
+                        <td>@Model.Member.FirstName</td>
+
+                        <td>@Model.Member.DOB</td>
+
+
+
+
+                        <td> <a asp-page="EditMemberDetails" asp-route-id="@Model.Member.MemberID">Edit</a> </td>
+
+                    </tr>
+               
+            </tbody>
+        </table>
+    </div>
+
+    <input type="hidden" asp-for=@Model.Member.MemberID>
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    <a asp-page="MemberDB"  class="btn btn-success">Save-No Changes</a>
+
+
+</form>

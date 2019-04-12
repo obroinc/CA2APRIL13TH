@@ -1,0 +1,120 @@
+﻿@page
+@model memberEAD.Pages.NewMemberModel
+@{
+    ViewData["Title"] = "NewMember";
+}
+
+<h2>NewMember</h2>
+
+<form method="post">
+
+    <fieldset>
+        <legend>Please fill in your details</legend>
+
+        <div class="form-group">
+            <label asp-for=Member.FirstName></label>
+            <span class="required-field">*</span><br />
+
+            <input asp-for="Member.FirstName"  type="text" placeholder="First name" aria-label="Student.Firstname" aria-describedby="Firstname">
+
+            <span asp-validation-for=Member.FirstName />@*Valiadting input*@
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for=Member.LastName></label>
+            <span class="required-field">*</span><br />
+
+            <input asp-for="Member.LastName" type="text" placeholder="Last name" aria-label="Member.Firstname" aria-describedby="Lastname">
+
+            <span asp-validation-for=Member.LastName />@*Valiadting input*@
+        </div>
+
+
+
+        <div class="form-group">
+            <label asp-for=Member.DOB></label>
+            <span class="required-field">*</span><br />
+
+            <input asp-for=Member.DOB />
+
+            <span asp-validation-for=Member.DOB />@*Valiadting input*@
+
+        </div>
+
+        <div class="form-group">
+            <label asp-for=Member.PPS></label>
+            <span class="required-field">*</span><br />
+
+            <input asp-for="Member.PPS" type="text" placeholder="1234567WT" aria-label="Member.Firstname" aria-describedby="PPS">
+
+            <span asp-validation-for=Member.PPS />@*Valiadting input*@
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for=Member.Email></label>
+            <span class="required-field">*</span><br />
+
+            <input asp-for="Member.Email" type="text" placeholder="Hi@gmail" aria-label="Member.Firstname" aria-describedby="PPS">
+
+            <span asp-validation-for=Member.Email />@*Valiadting input*@
+        </div>
+
+        <div class="form-group">
+
+
+
+            <fieldset>
+                <legend>Please tells us your child's gender*</legend>
+
+                <label for="Male" class="radio-inline" />
+
+                <input value="Male" id="Male" type="radio" asp-for="Member.Gender" checked>Male
+
+
+                <label for="Female" class="radio-inline">
+                    <input value="Female" id="Female" type="radio" asp-for="Member.Gender" />Female
+                </label>
+            </fieldset>
+
+            <span asp-validation-for=Member.Gender />@*Valiadting input*@
+        </div>
+
+
+    </fieldset><br />
+
+    <div class="form-group">
+
+       <label>Gender please</label>
+
+            <div class="custom-control custom-checkbox">
+                <input asp-for="Member.Mondays" type="checkbox" class="custom-control-input" id="Student.Mondays" checked>
+                <label asp-for="Member.Mondays" class="custom-control-label" for="Student.Mondays">Check for Monday</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input asp-for="Member.Tuesday" type="checkbox" class="custom-control-input" id="Student.Tuesday">
+                <label asp-for="Member.Tuesday" class="custom-control-label" for="Student.Tuesday">Check for Tuesday</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input asp-for="Member.Wednesday" type="checkbox" class="custom-control-input" id="Student.Wednesday">
+                <label asp-for="Member.Wednesday" class="custom-control-label" for="Student.Wednesday">Check for Wednesday</label>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+                <input asp-for="Member.Thursday" type="checkbox" class="custom-control-input" id="Student.Thursday">
+                <label asp-for="Member.Thursday" class="custom-control-label" for="Student.Thursday">Check for Thursday</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input asp-for="Member.Friday" type="checkbox" class="custom-control-input" id="Student.Friday">
+                <label asp-for="Member.Friday" class="custom-control-label" for="Student.Friday">Check for Friday</label>
+            </div>
+
+       
+    </div>
+    <br />
+    <div asp-validation-summary="All"></div>
+    <br />
+    <button class="btn btn-success" type="submit">Submit Details</button>
+
+</form>
